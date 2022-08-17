@@ -4,12 +4,12 @@ import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
 
-describe('Render App Component', () => {
-  test('App component', () => {
-    render(
-      <Provider store={store}>
-          <App />
-      </Provider>,
-    );
-  });
+test('renders learn react link', () => {
+  const { getByText } = render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+
+  expect(getByText(/learn/i)).toBeInTheDocument();
 });
